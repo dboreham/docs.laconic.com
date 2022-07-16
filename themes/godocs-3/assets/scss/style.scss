@@ -10,7 +10,7 @@ $black: {{.black}};
 $white: {{.white}};
 $light: {{.light}};
 
-$font-primary: '{{ replaceRE ":wght@[0-9;]+" "" .primary_font }}', {{.primary_font_type}};
+$font-primary: '{{ replaceRE ":wght@[0-9;]+" "" .primary_font }}';
 $font-primary-path: '{{.primary_font_path}}';
 $font-secondary: '{{ replaceRE ":wght@[0-9;]+" "" .secondary_font }}', {{.secondary_font_type}};
 $icon-font: '{{.icon_font}}';

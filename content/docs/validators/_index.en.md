@@ -4,20 +4,7 @@ description: "Validators keep the Laconic Network safe and in consensus."
 weight: 4
 ---
 
-{{< glossary "validator/" "Validators" >}} provide Ethereum state data to service providers and can also serve in the role of service providers, running {{< glossary "watcher/" "Watchers" >}} as well. Laconic partners are the only possible Validators of the Laconic Network, and as partners are responsible for the overall direction of the network. Validators benefit by charging fees for producing blocks.
-
-### Solution details
-
-Validators provide a number of key services of the Laconic Network, including:
-
-- Partner share auctions
-- State injection from other blockchains
-- Cross-chain asset management
-- Payment channels
-- Data pinning
-- Watcher registration and discovery
-- Service provider registration
-- Fraud proofs
+Laconic {{< glossary "validator/" "Validators" >}} provide services to the Laconic Network, including block  production, Network Governancestate  injection into Laconic Network from bridged L1s and other blockchains, cross-chain asset management via Rollup (RU)  Bridge between L1 (Ethereum) and L2 Laconic Network, payment channels, data pinning, {{< glossary "watcher/" "Watcher" >}} Registration, Watcher Discovery, Service Provider Registration, and Service Provider Reputation, such as generating and validating service provider fraud proofs.
 
 ### How to get involved
 

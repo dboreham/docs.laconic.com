@@ -172,7 +172,8 @@ $(document).on("turbolinks:load", preloader);
           }
         });
 
-        sidelists.removeClass('active');
+        //sidelists.removeClass('active');
+        console.log(current);
         $('a[href$="#' + current + '"]').parent().addClass('active');
       });
     }

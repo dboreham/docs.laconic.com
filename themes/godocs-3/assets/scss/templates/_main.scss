@@ -77,11 +77,11 @@
     }
 
     .active {
-
       a {
         font-weight: 500 !important;
       }
     }
+
   }
 
   .parent {
@@ -256,10 +256,10 @@ pre {
   &::-webkit-scrollbar {
     width: 5px;
     &-track {
-      background: $light; 
+      background: $light;
     }
     &-thumb {
-      background: $border-color; 
+      background: $border-color;
     }
   }
 

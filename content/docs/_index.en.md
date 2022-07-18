@@ -10,4 +10,3 @@ The following sections provide overviews of the relevant roles:
 * [DApp Developers]({{< ref "/docs/dapp-developers" >}} "Developers")
 * [Service Providers]({{< ref "/docs/service-providers" >}} "Service Providers")
 * [Validators]({{< ref "/docs/validators" >}} "Validators")
-* [Laconic Network Members]({{< ref "/docs/members" >}} "Laconic Network Members")

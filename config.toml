@@ -3,7 +3,7 @@ baseURL = "/"
 title = "Laconic Documentation"
 theme = "godocs-3"
 # google analytics
-googleAnalytics = "G-HH2PQPJ3QZ" # example : UA-123-45
+# googleAnalytics = "G-HH2PQPJ3QZ" # example : UA-123-45
 
 # hugo outputs
 [outputs]

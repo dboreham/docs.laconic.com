@@ -157,12 +157,7 @@ $(document).on("turbolinks:load", preloader);
 
 
     const anchors = $('.anchor');
-    const sidelists = $('li.sidelist');
-  console.log('fuck opff')
-  console.log(sidelists.length);
-    for (let i = 0; i < sidelists.length; ++i) {
-      console.log(sidelists[i].title);
-    }
+    const sidelists = $('li.sidelist a');
 
     if (window.location.pathname == '/faq/' || window.location.pathname == '/glossary/') {
       $(window).scroll(() => {
@@ -178,7 +173,7 @@ $(document).on("turbolinks:load", preloader);
         });
 
         sidelists.removeClass('active');
-        $('a[href$="#' + current + '"]').parent().addClass('active');
+        $('a[href$="#' + current + '"]').addClass('active');
       });
     }
 })(jQuery);

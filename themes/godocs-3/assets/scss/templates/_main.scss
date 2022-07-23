@@ -80,7 +80,7 @@
           bottom: 0;
           height: 100%;
           width: 1px;
-          border-left: 1px solid #ccc;
+          border-left: 1px solid $border-color;
         }
 
       }
@@ -91,6 +91,10 @@
       &:last-child a::before {
         height: calc(100% - 11px);
         top: 0;
+      }
+
+      &.active {
+        font-weight: 500 !important;
       }
     }
 
@@ -105,11 +109,11 @@
         display: block;
       }
     }
-    .active {
-      a {
-        font-weight: 500 !important;
-      }
-    }
+    //.active {
+      //a {
+        //font-weight: 500 !important;
+      //}
+    //}
 
   }
 
@@ -135,6 +139,10 @@
         font-size: 14px;
         font-weight: 400;
         color: $text-color-dark;
+
+        &.active {
+          font-weight: 590;
+        }
       }
 
       li>a {
@@ -462,7 +470,7 @@ pre {
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
-    border: 1px solid #EEEEEE;
+    border: 1px solid $border-color;
   }
 
   table td,
@@ -473,7 +481,7 @@ pre {
   }
 
   tr:not(:last-child) {
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid $border-color;
   }
 
   th {
@@ -485,12 +493,12 @@ pre {
     margin-bottom: 0;
 
     tr {
-      border-bottom: 1px solid #EEEEEE;
+      border-bottom: 1px solid $border-color;
     }
   }
 
   tbody {
-    background: #fff;
+    background: $white;
     margin-bottom: 0;
   }
 

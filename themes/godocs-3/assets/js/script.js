@@ -157,7 +157,7 @@ $(document).on("turbolinks:load", preloader);
 
 
     const anchors = $('.anchor');
-    const sidelists = $('.sidelist');
+    const sidelists = $('li.sidelist a');
 
     if (window.location.pathname == '/faq/' || window.location.pathname == '/glossary/') {
       $(window).scroll(() => {
@@ -173,7 +173,7 @@ $(document).on("turbolinks:load", preloader);
         });
 
         sidelists.removeClass('active');
-        $('a[href$="#' + current + '"]').parent().addClass('active');
+        $('a[href$="#' + current + '"]').addClass('active');
       });
     }
 })(jQuery);

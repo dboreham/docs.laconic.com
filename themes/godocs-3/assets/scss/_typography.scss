@@ -5,6 +5,14 @@
   src: url($font-primary-path) format('truetype');
 }
 
+@font-face {
+  font-family: 'TT Hoves Variable';
+  src: url('/fonts/tthovesvariable.ttf') format('truetype'),
+       url('/fonts/TTHovesVariable.woff2') format('woff2'),
+       url('/fonts/TTHovesVariable.woff') format('woff'),
+       url('/fonts/TTHovesVariable.svg#TTHovesVariable') format('svg');
+}
+
 body {
   font-family: $font-primary;
   -webkit-font-smoothing: antialiased;
@@ -32,6 +40,10 @@ h6 {
   font-family: $font-primary;
   font-weight: 700;
   line-height: 1.2;
+}
+
+h3 {
+  font-weight: 550;
 }
 
 h1,

@@ -26,12 +26,6 @@ The deployment script is:
 
 If you notice differences in the styling between your local copy and the preview built on Fleek, try adding `--minify` to your local server command.
 
-## Fleek hosting
-
-The site, including all per-branch preview deployments, is hosted on IPFS via Fleek. Cloudflare IPFS gateway is set up as a part of the Fleek build, including TLS procurement. 
-
-All Fleek deployment URLs can be accessed from the branches here: https://github.com/LaconicNetwork/Laconic-Documentation/branches
-
 ## Adding content
 
 In general, to create a new page, open a terminal, cd to the repository's root directory, and type

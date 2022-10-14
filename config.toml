@@ -163,10 +163,6 @@ content = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br
 
 ############## English navigation ###############
 # main menu
-[[Languages.en.menu.main]]
-name = "Home"
-url = ""
-weight = 1
 
 [[Languages.en.menu.main]]
 name = "Docs"

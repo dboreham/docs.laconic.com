@@ -21,9 +21,9 @@ Real time discussions and announcements on all Laconic oriented topics.
 {{% /class %}}
 
 {{% class card %}}
-{{% social_icon "fab fa-twitter" "https://discord.com/invite/ukhbBemyxY" %}}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-{{% button "https://discord.com/invite/ukhbBemyxY" "Follow us on Twitter" %}}
+{{% social_icon "fab fa-twitter" "https://twitter.com/laconicnetwork" %}}
+Follow Laconic on Twitter for the latest news and announcements.
+{{% button "https://twitter.com/laconicnetwork" "Follow us on Twitter" %}}
 {{% /class %}}
 
 {{% class card %}}

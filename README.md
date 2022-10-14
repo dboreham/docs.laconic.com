@@ -1,6 +1,5 @@
 # Laconic-Documentation
 
-This repository is the source for the site https://docs.laconic.com, detailing the usage of the [Laconic Network](https://laconic.com).
 
 ## Local editing
 

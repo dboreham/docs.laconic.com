@@ -140,6 +140,13 @@ title = "reddit"
 icon = "fab fa-reddit" # fontawesome icon : https://fontawesome.com/icons
 link = "https://www.reddit.com/r/LaconicNetwork/"
 
+[[params.social]]
+title = "linkedin"
+icon = "fab fa-linkedin" # fontawesome icon : https://fontawesome.com/icons
+link = "https://www.linkedin.com/company/laconic-network/"
+
+
+
 
 ################################### English language #####################################
 [Languages.en]

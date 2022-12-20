@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail  ## https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 
-# script assumes root perms on a fresh Ubuntu droplet
+# script assumes root perms on a fresh Ubuntu droplet (4vcpu-8gb)
 # perms also required for priv GH repos
 # TODO simple config for ssh-agent
 

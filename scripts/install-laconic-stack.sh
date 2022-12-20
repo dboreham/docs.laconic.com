@@ -38,7 +38,7 @@ systemctl start postgresql.service
 
 # $ sudo -u postgres psql # enters you into the console
 # $ postgres=# \password postgres
-# $ Enter new password: <new-password>
+# $ Enter new password: postgres
 # $ postgres=# \q
 
 ## clone the two repos we'll be using
@@ -52,4 +52,3 @@ git clone https://github.com/cerc-io/watcher-ts.git
 # $ source venv/bin/activate
 # $ pip install --editable .
 # $ laconic-so
-

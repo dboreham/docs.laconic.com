@@ -2,6 +2,8 @@
 set -euo pipefail  ## https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 
 # script assumes root perms on a fresh Ubuntu droplet
+# perms also required for priv GH repos
+# TODO simple config for ssh-agent
 
 # dismiss the popups
 export DEBIAN_FRONTEND=noninteractive 

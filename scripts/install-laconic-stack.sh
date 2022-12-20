@@ -47,9 +47,9 @@ git clone https://github.com/cerc-io/watcher-ts.git
 
 # build `laconic-so` binary
 # TODO remove this when #69 is fixed & remove venv install above
-python3 -m venv venv
-source venv/bin/activate
-pip install --editable .
+# do this manually it didn't script well
+# $ python3 -m venv venv
+# $ source venv/bin/activate
+# $ pip install --editable .
+# $ laconic-so
 
-#test
-laconic-so

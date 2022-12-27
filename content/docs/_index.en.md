@@ -7,6 +7,7 @@ Here you will find the documentation for the Laconic Network. Documentation will
 
 The following sections provide overviews of the relevant roles:
 
+* [Tutorials]({{< ref "/docs/tutorials" >}} "Tutorials")
 * [DApp Developers]({{< ref "/docs/dapp-developers" >}} "Developers")
 * [Service Providers]({{< ref "/docs/service-providers" >}} "Service Providers")
 * [Validators]({{< ref "/docs/validators" >}} "Validators")

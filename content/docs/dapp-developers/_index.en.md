@@ -1,12 +1,11 @@
 ---
-title: "DApp developers"
-description: "Applications query blockchain content from Service Providers via Watchers."
+title: "DApp Developers"
+description: "How Laconic Empowers Dapp Developers"
 weight: 2
 ---
 
-DApp developers need access to provable blockchain data in a manner that is scalable, fast, and cost effective. Laconic provides data access to DApps via {{< glossary "watcher/" "Watchers" >}} which can be found via the {{< glossary "watcher-registry/" "Watcher Registry">}}, generated from Solidity contract code, or written from scratch.
+Dapp developers currently rely on centralized solutions to serve their users. This - among other reasons - is because running an Ethereum archive node is prohibitively expensive. As well, the data retrieved by Dapp developers from the Ethereum network via centralized data providers is not independently verifiable.
 
-### How to get involved
+The Laconic Network is structured to provide greater decentralization when it comes to accessing data in Web3. Dapp developers can generate Watchers from their Solidity contracts. These Watchers allow Dapp Developers to inexpensively query the subset of Ethereum state that is relevant to their application.  Crucially, these queries return not only the required data but also the evidence (via IPLD) to generate verifable proofs.
 
-- Consider participating as a {{< glossary "laconic-network-partner/" "Laconic Network Partner" >}} by becoming a {{< glossary "dapp-operator/" "DApp Operator" >}}.
-- Develop a {{< glossary "watcher/" "Watcher" >}} and make it available from the {{< glossary "watcher-registry/" "Watcher Registry" >}}.
+Another benefit of Watchers is that queries are made using GraphQL - reducing the barrier of entry for Web2 developers and simplifying the experience for seasoned Web3 developers. 

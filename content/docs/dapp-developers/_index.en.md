@@ -10,13 +10,3 @@ DApp developers need access to provable blockchain data in a manner that is scal
 
 - Consider participating as a {{< glossary "laconic-network-partner/" "Laconic Network Partner" >}} by becoming a {{< glossary "dapp-operator/" "DApp Operator" >}}.
 - Develop a {{< glossary "watcher/" "Watcher" >}} and make it available from the {{< glossary "watcher-registry/" "Watcher Registry" >}}.
-
-### Next steps
-
-Stay up-to-date with Laconic news:
-
-- Ask questions [on our forum](https://laconic.community).
-- Join our [Discord server](https://discord.com/invite/ukhbBemyxY)
-- Subscribe to our [Telegram channel](https://t.me/laconicnetwork)
-- Sign up for our [mailing list](https://www.laconic.com/)
-

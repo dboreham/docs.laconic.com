@@ -1,7 +1,8 @@
 ---
-title: "Service providers"
-description: "What are Laconic Service Providers and where to get additional information."
+title: "Service Providers"
+description: "Service Providers run Watchers and receive compensation for providing verifiable data"
 weight: 3
 ---
 
-Service providers run {{< glossary "watcher/" "Watchers" >}} and serve data to end users. As a Laconic {{< glossary "service-provider/" "Service Provider" >}} you can join the Service Provider Marketplace to become part of a federated cache for serving watcher data. 
+Service Providers run Watchers on behalf of Watcher Publishers (Dapp developers) and serve data to end users. For any given Watcher, Service Providers will form a Federated Cache. In the Service Provider Marketplace, Watcher Publishers will be matched with Service Providers, who will form the Federated Cache for that Watcher.
+

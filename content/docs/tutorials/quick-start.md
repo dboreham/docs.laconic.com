@@ -31,7 +31,7 @@ cd stack-orchestrator
 - download the `laconic-so` binary
 
 ```
-curl -L -o laconic-so https://github.com/cerc-io/stack-orchestrator/releases/download/v1.0.3-alpha/laconic-so
+curl -L -o laconic-so https://github.com/cerc-io/stack-orchestrator/releases/download/v1.0.5-alpha/laconic-so
 chmod +x laconic-so
 ```
 

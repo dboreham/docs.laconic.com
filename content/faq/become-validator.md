@@ -1,10 +1,9 @@
 ---
-title: How do I become a Validator?
+title: How do I become a Member Validator?
 weight: 1
-category: validators-members
 ---
 
-Laconic members are the only possible Validators of the Laconic Network. To become a Validator, you must complete an incentivized testnet that verifies technical competency. Furthermore, validators participate in the governance of a legal membership and must provide Know Your Customer (KYC) information to Laconic.	 	 	 
+Laconic LLC Members are the only possible Validators of the Laconic Network. To become a Member Validator, you must complete an incentivized testnet that verifies technical competency, show proof of reserves, and participate in an auction among other potential Member Validators. Furthermore, validators participate in the governance of a legal membership and must provide Know Your Customer (KYC) information to Laconic.	 	 	 
 
 To act as a Validator, you must:
 

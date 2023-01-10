@@ -2,6 +2,7 @@
 title: Why did you decide to call it Laconic Network?
 weight: 2
 category: laconic-network
+draft: true
 ---
 
 Referencing the ancient inhabitants of Laconia known for their more concise and terse style of speech, Laconic also describes a manner of speaking or writing that uses only a few words, often to express complex thoughts and ideas.

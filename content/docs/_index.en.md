@@ -1,7 +1,8 @@
 ---
 title: "Docs"
-description: "Laconic Network Documentation for DApp developers, Watcher writers, Validators, and Laconic Network Members."
-weight: 5
+description: "Laconic Network Documentation for Member Validators, Service Providers, and Dapp Developers"
 ---
 
-Main docs for Laconic Network
+The Laconic Network is an ecosystem of Member Validators, Service Providers, and Dapp Developers. Together, they form a decentralized marketplace for matching Dapps with Service Providers to serve custom data queries known as Watchers.
+
+It makes blockchain data more accessible, enables independent verification with cryptographic proofs using evidence

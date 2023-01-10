@@ -1,5 +1,5 @@
 ---
-title: Does Laconic Network support CosmoSDK blockchains?
+title: Does Laconic Network support CosmosSDK blockchains?
 weight: 1
 category: laconic-network
 ---

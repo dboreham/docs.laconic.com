@@ -1,7 +1,7 @@
 ---
 title: What are Watchers?
 weight: 2
-category: dapps-watchers
+category: laconic-network
 draft: true
 ---
 

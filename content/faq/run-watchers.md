@@ -1,7 +1,7 @@
 ---
 title: Who runs the Watchers?
 weight: 2
-category: dapps-watchers
+category: laconic-network
 draft: true
 ---
 

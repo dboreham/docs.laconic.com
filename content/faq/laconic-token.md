@@ -1,7 +1,7 @@
 ---
 title: Will Laconic Network have a token?
 weight: 2
-category: laconic-token
+category: laconic-network
 ---
 
 Yes. The Laconic Network Token (LNT) stores value for the network and enables users to pay for services. All fees from transactions and state channels pool in a vault as LNT.			

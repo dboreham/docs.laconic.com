@@ -1,7 +1,7 @@
 ---
 title: How do I find a Watcher to query?
 weight: 2
-category: dapps-watchers
+category: laconic-network
 draft: true
 ---
 

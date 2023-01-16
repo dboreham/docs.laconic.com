@@ -3,6 +3,7 @@ title: Incentivized Testnet
 description: Incentivize Watcher Publishers and Service Providers to participate in the Laconic Network in exchange for LNT
 tags:
   - fundamental
+draft: true
 ---
 
 Incentivized testnets, similar to other Cosmos SDK-based incentivized testnets, identify potential Members who are technically qualified to operate as a {{< glossary "validator" "Validator" >}}.

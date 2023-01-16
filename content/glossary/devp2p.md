@@ -3,6 +3,7 @@ title: devp2p
 description: A set of network protocols that form the Ethereum peer-to-peer network
 tags:
   - fundamental
+draft: true
 ---
 
 `devp2p` is a set of network protocols of various levels and purposes. Together, they form Ethereum's peer-to-peer network. 

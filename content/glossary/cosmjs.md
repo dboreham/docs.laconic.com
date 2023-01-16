@@ -4,6 +4,7 @@ description: CosmJS powers JavaScript-based client solutions in the Cosmos ecosy
 tags:
   - fundamental
   - cosmos
+draft: true
 ---
 
 CosmJS is a library created to talk to the Cosmos SDK. It can be used to create wallets, explorers, Inter‑Blockchain Communication Protocol (IBC) relayers, and other decentralized applications (DApps). It is written in TypeScript and can therefore be client or server-side. Laconic uses a fork of the CosmJS project.

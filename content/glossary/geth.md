@@ -12,4 +12,4 @@ Geth is a universal command-line client for Ethereum, and can be used to achieve
 - Connect to existing Ethereum networks.
 - Build a private network of multiple Geth nodes.
 
-Geth is part of the {{< glossary "go-ethereum" "go-ethereum" >}} project.
+Laconic maintains a fork of geth, with an added statediffing feature required to perform data indexing on IPLD.

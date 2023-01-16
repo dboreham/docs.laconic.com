@@ -1,5 +1,5 @@
 ---
-title: "Docs"
+title: "Laconic Network"
 description: "Laconic Network Documentation for Member Validators, Service Providers, and Dapp Developers"
 ---
 

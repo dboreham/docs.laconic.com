@@ -14,3 +14,4 @@ Advantages of content addressing:
 - Content addressing avoids link rot. Re-organizing content in Web1/Web2 may cause location-based identifiers (a.k.a URL's) to become invalid. Content addressing makes no assumption about the current location (or locations) of the data. 
 - Content addressing preserves the history of content. A CID represents a snapshot of a document at a given time. 
 
+Laconic leverages IPFS and IPLD to provide a novel solutions for content addressing and indexing.

@@ -1,0 +1,1 @@
+- [Intro to the Laconic Stack (Введение в стэк Laconic)](https://medium.com/@thenextlevel_/введение-в-стэк-laconic-ef67b74e7c73)

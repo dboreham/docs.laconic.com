@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "ERC20 Watcher Demo"
 date: 2022-12-30T09:19:28-05:00
 draft: false
 weight: 1
@@ -13,37 +13,18 @@ This tutorial will give you an overview of some key components of the Laconic St
 - send tokens to and from your local account to another account on Metamask
 - use GraphQL to query the watcher for information about the token and accounts.
 
-It is an extension of [this demo](https://github.com/cerc-io/stack-orchestrator/tree/main/stacks/erc20)
-
 ## Install
 
-- clone the stack orchestrator repository:
+This tutorial assumes you are on a local machine. Trying it in the cloud will requires additional configurations (e.g., opening ports) not covered here.
 
-```
-git clone https://github.com/cerc-io/stack-orchestrator.git
-```
-
-Make the root of that repo your current working directory:
-```
-cd stack-orchestrator
-```
-
-- download the `laconic-so` binary
-
-```
-curl -L -o laconic-so https://github.com/cerc-io/stack-orchestrator/releases/download/v1.0.5-alpha/laconic-so
-chmod +x laconic-so
-```
-
-For a more permanent setup, move the binary to `~/bin` and add it your `PATH`.
-
-The `laconic-so` binary also requires:
+### Pre-requisites
 
 - `python3` [Install](https://www.python.org/downloads/)
 - `docker` [Install](https://docs.docker.com/get-docker/)
 - `docker-compose` [Install](https://docs.docker.com/compose/install/)
+- MetaMask [Install](https://metamask.io/download/) in the supported browser of your choice.
 
-If using a fresh Linux droplet, check out [this script](https://github.com/LaconicNetwork/Laconic-Documentation/blob/main/scripts/install-laconic-stack.sh) for a quick setup.
+If using a fresh Ubuntu Digital Ocean droplet, check out [this script](https://github.com/LaconicNetwork/Laconic-Documentation/blob/staging/scripts/install-laconic-stack.sh) for a quick setup.
 
 **WARNING**: if installing docker-compose via package manager (as opposed to Docker Desktop), you must install the plugin, e.g., on Linux:
 
@@ -53,7 +34,43 @@ curl -SL https://github.com/docker/compose/releases/download/v2.11.2/docker-comp
 chmod +x ~/.docker/cli-plugins/docker-compose
 ```
 
-Finally, [install MetaMask](link) in the supported browser of your choice.
+Next, install the latest release of Stack Orchestrator
+
+```
+curl -L -o laconic-so https://github.com/cerc-io/stack-orchestrator/releases/latest/download/laconic-so
+```
+
+Give it permission:
+```
+chmod +x laconic-so
+```
+
+Verify operation:
+```
+./laconic-so 
+Usage: python -m laconic-so [OPTIONS] COMMAND [ARGS]...
+
+  Laconic Stack Orchestrator
+
+Options:
+  --stack TEXT         specify a stack to build/deploy
+  --quiet
+  --verbose
+  --dry-run
+  --local-stack
+  --debug
+  --continue-on-error
+  -h, --help           Show this message and exit.
+
+Commands:
+  build-containers    build the set of containers required for a complete...
+  build-npms          build the set of npm packages required for a...
+  deploy-system       deploy a stack
+  setup-repositories  git clone the set of repositories required to build...
+  version             print tool version
+```
+
+For a more permanent setup, move the binary to `~/bin` and add it your `PATH`.
 
 ## Stack Orchestrator
 
@@ -64,58 +81,80 @@ The `laconic-so` CLI tool makes it easy to experiment with various components of
 Use the stack orchestrator to pull the core repositories:
 
 ```
-./laconic-so setup-repositories --include cerc-io/go-ethereum,cerc-io/ipld-eth-db,cerc-io/ipld-eth-server,cerc-io/watcher-ts --pull
+./laconic-so --stack erc20 setup-repositories
 ```
 
 You'll see something like:
 ```
 Dev Root is: /root/cerc
-Dev root directory doesn't exist, creating
-Excluding: vulcanize/ops
-Excluding: cerc-io/eth-statediff-service
-Excluding: vulcanize/eth-statediff-fill-service
-Excluding: vulcanize/ipld-eth-db-validator
-Excluding: vulcanize/ipld-eth-beacon-indexer
-Excluding: vulcanize/ipld-eth-beacon-db
-Excluding: cerc-io/laconicd
-Excluding: cerc-io/laconic-cns-cli
-Excluding: cerc-io/mobymask-watcher
-Excluding: vulcanize/assemblyscript
-Checking: /root/cerc/ipld-eth-db: Needs to be fetched
-100%|###################################################################################################################| 595/595 [00:00<00:00, 797B/s]
 Checking: /root/cerc/go-ethereum: Needs to be fetched
-100%|#############################################################################################################| 71.5k/71.5k [00:19<00:00, 3.65kB/s]
+100%|####################################################################################################| 71.6k/71.6k [00:23<00:00, 3.10kB/s]
+Checking: /root/cerc/ipld-eth-db: Needs to be fetched
+100%|##########################################################################################################| 595/595 [00:00<00:00, 991B/s]
 Checking: /root/cerc/ipld-eth-server: Needs to be fetched
-100%|#############################################################################################################| 25.5k/25.5k [00:06<00:00, 3.93kB/s]
+100%|####################################################################################################| 25.5k/25.5k [00:06<00:00, 3.82kB/s]
 Checking: /root/cerc/watcher-ts: Needs to be fetched
-100%|#############################################################################################################| 8.41k/8.41k [00:01<00:00, 8.08kB/s]
+100%|####################################################################################################| 8.79k/8.79k [00:01<00:00, 4.49kB/s]
 ```
 
 Next, we'll build the docker images for each repo we just fetched.
 
 ```
-./laconic-so build-containers --include cerc/go-ethereum,cerc/go-ethereum-foundry,cerc/ipld-eth-db,cerc/ipld-eth-server,cerc/watcher-erc20
+./laconic-so --stack erc20 build-containers 
 ```
 
-This process will take 10-15 minutes, go make a pot of coffee.
+This process will take 10-15 minutes, go make a pot of coffee. The output will give you an idea of what's going on. Eventually, you'll see:
 
-TODO what is the success message
+```
+Successfully built 77c75d57ad66
+Successfully tagged cerc/watcher-erc20:local
+```
 
 Next, let's deploy this stack:
 
 ```
-./laconic-so deploy-system --include db,go-ethereum-foundry,ipld-eth-server,watcher-erc20 up
+./laconic-so --stack erc20deploy-system up
 ```
 
-The end of the output will look something like:
+The output will looks like this (ignore the warnings):
 
 ```
-[+] Running 5/5
- ⠿ Network laconic-0aa2a222529cdb7b0bfcc4c0f5766074_default              Created                                                                  0.2s
- ⠿ Container laconic-0aa2a222529cdb7b0bfcc4c0f5766074-ipld-eth-db-1      He...                                                                   32.2s
- ⠿ Container laconic-0aa2a222529cdb7b0bfcc4c0f5766074-migrations-1       Sta...                                                                  32.7s
- ⠿ Container laconic-0aa2a222529cdb7b0bfcc4c0f5766074-go-ethereum-1      St...                                                                   32.7s
- ⠿ Container laconic-0aa2a222529cdb7b0bfcc4c0f5766074-ipld-eth-server-1  Started                                                                 32.7s
+WARN[0000] The "eth_proxy_on_error" variable is not set. Defaulting to a blank string. 
+WARN[0000] The "eth_forward_eth_calls" variable is not set. Defaulting to a blank string. 
+WARN[0000] The "eth_http_path" variable is not set. Defaulting to a blank string. 
+[+] Running 23/23
+ ⠿ ipld-eth-db Pulled                                                                                                                   18.4s
+   ⠿ 213ec9aee27d Already exists                                                                                                         0.0s
+   ⠿ 85c3ef7cf9a6 Pull complete                                                                                                          0.7s
+   ⠿ ac29cc04759a Pull complete                                                                                                          0.9s
+   ⠿ 2a37e244d86b Pull complete                                                                                                         13.5s
+   ⠿ 36d7202aa1cf Pull complete                                                                                                         13.8s
+   ⠿ 3acdddb9790a Pull complete                                                                                                         13.9s
+   ⠿ 9a938759f2bf Pull complete                                                                                                         14.1s
+   ⠿ 5d65a6241248 Pull complete                                                                                                         14.2s
+   ⠿ cee6999f074e Pull complete                                                                                                         14.4s
+   ⠿ 20b12472cb73 Pull complete                                                                                                         14.8s
+   ⠿ 65467bb36f5f Pull complete                                                                                                         16.2s
+   ⠿ fe6050bae51d Pull complete                                                                                                         17.4s
+   ⠿ 519306d43b4a Pull complete                                                                                                         17.9s
+ ⠿ erc20-watcher-db Pulled                                                                                                              15.0s
+   ⠿ 8921db27df28 Already exists                                                                                                         0.0s
+   ⠿ eb286326f602 Pull complete                                                                                                          0.3s
+   ⠿ 63139c77dd7e Pull complete                                                                                                          0.5s
+   ⠿ 17baeacd3984 Pull complete                                                                                                         13.5s
+   ⠿ 5f08b9782916 Pull complete                                                                                                         13.8s
+   ⠿ a836be7ad658 Pull complete                                                                                                         14.0s
+   ⠿ 1966853affaf Pull complete                                                                                                         14.2s
+   ⠿ 4dc6d2c8dede Pull complete                                                                                                         14.4s
+[+] Running 8/8
+ ⠿ Network laconic-30c27a9be20b005274dfc23fd7e90256_default                 Created                                                      0.1s
+ ⠿ Volume "laconic-30c27a9be20b005274dfc23fd7e90256_erc20_watcher_db_data"  Created                                                      0.0s
+ ⠿ Container laconic-30c27a9be20b005274dfc23fd7e90256-ipld-eth-db-1         Healthy                                                     33.0s
+ ⠿ Container laconic-30c27a9be20b005274dfc23fd7e90256-erc20-watcher-db-1    Healthy                                                     34.8s
+ ⠿ Container laconic-30c27a9be20b005274dfc23fd7e90256-migrations-1          Started                                                     32.7s
+ ⠿ Container laconic-30c27a9be20b005274dfc23fd7e90256-go-ethereum-1         Started                                                     33.1s
+ ⠿ Container laconic-30c27a9be20b005274dfc23fd7e90256-ipld-eth-server-1     Healthy                                                     53.5s
+ ⠿ Container laconic-30c27a9be20b005274dfc23fd7e90256-erc20-watcher-1       Started                                                     54.3s
 ```
 
 Let's take stock of what just happened, we:
@@ -132,31 +171,24 @@ docker ps
 You should see 6 containers:
 
 ```
-CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                    PORTS                                            NAMES
-375781e8ea51   cerc/watcher-erc20:local           "docker-entrypoint.s…"   14 minutes ago   Up 13 minutes (healthy)   0.0.0.0:3001->3001/tcp, 0.0.0.0:9001->9001/tcp   laconic-515b4020f964b70ab3826351cd3f9eb5-erc20-watcher-1
-57fddbabafd7   cerc/ipld-eth-server:local         "/app/entrypoint.sh"     14 minutes ago   Up 14 minutes (healthy)   127.0.0.1:8081-8082->8081-8082/tcp               laconic-515b4020f964b70ab3826351cd3f9eb5-ipld-eth-server-1
-32960ff93da5   cerc/go-ethereum-foundry:local     "./start-private-net…"   14 minutes ago   Up 14 minutes (healthy)   127.0.0.1:8545-8546->8545-8546/tcp               laconic-515b4020f964b70ab3826351cd3f9eb5-go-ethereum-1
-667f64fe6f0a   cerc/ipld-eth-db:local             "/app/startup_script…"   14 minutes ago   Up 14 minutes                                                              laconic-515b4020f964b70ab3826351cd3f9eb5-migrations-1
-61da438e8a2f   postgres:14-alpine                 "docker-entrypoint.s…"   14 minutes ago   Up 14 minutes (healthy)   0.0.0.0:15432->5432/tcp                          laconic-515b4020f964b70ab3826351cd3f9eb5-watcher-db-1
-4458135e10d7   timescale/timescaledb:2.8.1-pg14   "docker-entrypoint.s…"   14 minutes ago   Up 14 minutes (healthy)   127.0.0.1:8077->5432/tcp                         laconic-515b4020f964b70ab3826351cd3f9eb5-ipld-eth-db-1
+CONTAINER ID   IMAGE                              COMMAND                  CREATED         STATUS                     PORTS                                            NAMES
+605ccf0e4461   cerc/watcher-erc20:local           "docker-entrypoint.s…"   6 minutes ago   Up 5 minutes (unhealthy)   0.0.0.0:3002->3001/tcp, 0.0.0.0:9002->9001/tcp   laconic-30c27a9be20b005274dfc23fd7e90256-erc20-watcher-1
+0a00a3a1bcd6   cerc/ipld-eth-db:local             "/app/startup_script…"   6 minutes ago   Up 5 minutes                                                                laconic-30c27a9be20b005274dfc23fd7e90256-migrations-1
+f4aece866e48   cerc/ipld-eth-server:local         "/app/entrypoint.sh"     6 minutes ago   Up 5 minutes (healthy)     127.0.0.1:8081-8082->8081-8082/tcp               laconic-30c27a9be20b005274dfc23fd7e90256-ipld-eth-server-1
+ebe0dc8cd2b4   cerc/go-ethereum-foundry:local     "./start-private-net…"   6 minutes ago   Up 5 minutes (healthy)     127.0.0.1:8545-8546->8545-8546/tcp               laconic-30c27a9be20b005274dfc23fd7e90256-go-ethereum-1
+72263d100b8c   postgres:14-alpine                 "docker-entrypoint.s…"   6 minutes ago   Up 6 minutes (healthy)     0.0.0.0:15433->5432/tcp                          laconic-30c27a9be20b005274dfc23fd7e90256-erc20-watcher-db-1
+d2effc54624c   timescale/timescaledb:2.8.1-pg14   "docker-entrypoint.s…"   6 minutes ago   Up 6 minutes (healthy)     127.0.0.1:8077->5432/tcp                         laconic-30c27a9be20b005274dfc23fd7e90256-ipld-eth-db-1
+
 ```
 
-Let's go through them 1-by-1:
+Finally, via the `watcher-erc20` container, the [GraphQL](https://graphql.org) playground is enabled on [http://localhost:3002/graphql](http://localhost:3002/graphql) and you should check that it is there:
 
-- watcher-erc20: does X and we'll be using its `CONTAINER_ID` later on.
-- ipld-eth-server:
-- go-ethereum-foundry:
-- ipld-eth-db: the database schema for ipld-eth-server
-- postgres:
-- timescaledb:
-
-Finally, via the `watcher-erc20` container, the [GraphQL](link) playground is enabled on `http://localhost:3001/graphql` and you should check that it is there:
-
-[img](link)
+![GQL Main Screen](/images/graphql-main-screen.png)
 
 Great so now we have the core stack up and running, let's deploy an ERC20 token.
 
 First, we need the `CONTAINER ID` of the ERC20 watcher:
+
 ```
 docker ps | grep "watcher-erc20"
 ```
@@ -164,7 +196,7 @@ docker ps | grep "watcher-erc20"
 Using the `ID` from the example above, we'll export the `CONTAINER_ID` for use throughout the rest of the tutorial:
 
 ```
-export CONTAINER_ID=375781e8ea51
+export CONTAINER_ID=605ccf0e4461
 ```
 
 Next, we can deploy an ERC20 token (currency symbol GLD):
@@ -173,6 +205,7 @@ docker exec $CONTAINER_ID yarn token:deploy:docker
 ```
 
 and your output should look like:
+
 ```
 yarn run v1.22.19
 $ hardhat --network docker token-deploy
@@ -190,10 +223,13 @@ export TOKEN_ADDRESS=0x0Dcb65938A483547835e2ebB4FC6cBf7AEe77550
 ```
 
 Get your primary account address with:
+
 ```
 docker exec $CONTAINER_ID yarn account:docker
 ```
+
 and the following output:
+
 ```
 yarn run v1.22.19
 $ hardhat --network docker account
@@ -202,29 +238,25 @@ Done in 21.63s.
 ```
 
 export that address to your shell:
+
 ```
 export PRIMARY_ADDRESS=0x33AF7AB219be47367dfa5A3739e6B9CA1c40cDC8
 ```
 
-(where is the priv-key or mnemonic for this account?)
-
 To get the latest block hash at any time, run:
+
 ```
 docker exec $CONTAINER_ID yarn block:latest:docker
 ```
 
 for an output like:
+
 ```
 yarn run v1.22.19
 $ hardhat --network docker block-latest
 Block Number: 12783
 Block Hash: 0xb7b4b65dd5fe3800a6c38cb8a26249bbb82041d7e0b347a853b73efc7a473b75
 Done in 21.44s.
-```
-
-Since you'll need the latest block hash a few times later in this tutorial, create an alias:
-```
-alias latest-bh="docker exec $CONTAINER_ID yarn block:latest:docker
 ```
 
 Next we'll configure MetaMask.
@@ -244,14 +276,15 @@ Open MetaMask in your browser:
 3. Put in this information:
 
 ![MM Add Network Manually Localhost](/images/mm-add-network-manually-localhost.png)
-If you see the error above "This URL is currently used by the Localhost 8545 Network", either:
 
-change `localhost` to `127.0.0.1`
+If you see the error above "This URL is currently used by the Localhost 8545 Network", change `localhost` to `127.0.0.1`:
+
 ![MM Add Network Manually 127](/images/mm-add-network-manually-127.png)
 
 We will come back to MetaMask later and complete this process; for now, copy your new address
 
 ![MM Copy Address 2](/images/mm-copy-address-2.png)
+
 and export it for later:
 ```
 export RECIPIENT_ADDRESS=0x988a070c97D33a9Dfcc134df5628b77e8B5214ad
@@ -259,7 +292,7 @@ export RECIPIENT_ADDRESS=0x988a070c97D33a9Dfcc134df5628b77e8B5214ad
 
 ## GraphQL
 
-Head on over to [http://localhost:3001/graphql](http://localhost:3001/graphql) and paste the following (but with your variables):
+Head on over to [http://localhost:3002/graphql](http://localhost:3002/graphql) and paste the following (but with your variables):
 
 ```
 query {
@@ -295,7 +328,8 @@ query {
 }
 ```
 
-and you'll see a response like this:
+then click "Run" and you'll see a response like this:
+
 ```
 {
   "data": {
@@ -332,6 +366,7 @@ A lot has happened thus far, so let's review; we've:
 - exported a handful of shell variables which are about to come in handy
 
 Next we'll use the playground to query account balances:
+
 ```
 query {
   fromBalanceOf: balanceOf(
@@ -360,6 +395,7 @@ query {
   }
 }
 ```
+
 the primary address should have `value` 1000000000000000000000 and the recipient address should have 0:
 
 ```
@@ -401,7 +437,8 @@ value: 100000000
 Done in 26.12s.
 ```
 
-Now get the latest block height using the `latest-bh` alias, or for a refresher:
+Now get the latest block hash:
+
 ```
 docker exec $CONTAINER_ID yarn block:latest:docker 
 ```
@@ -459,13 +496,15 @@ Grab the latest block hash (again) and fire off the GraphQL query for account ba
 
 Voila! You've successfully stood up the core Laconic stack, deployed an ERC20 token, and queried account balances.
 
+## Cleanup
+
 Tear down your docker containers with:
 
 ```
-./laconic-so deploy-system --include db,go-ethereum-foundry,ipld-eth-server,watcher-erc20 down
+./laconic-so deploy-system --stack erc20 down
 ```
 
 ## Next steps
 
-
+Try out the [ERC721 demo](https://github.com/cerc-io/stack-orchestrator/tree/main/app/data/stacks/erc721)
 

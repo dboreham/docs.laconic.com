@@ -20,3 +20,12 @@ chmod +x ~/.docker/cli-plugins/docker-compose
 mkdir ~/bin
 curl -L -o ~/bin/laconic-so https://github.com/cerc-io/stack-orchestrator/releases/latest/download/laconic-so
 chmod +x ~/bin/laconic-so
+
+# add this line to ~/.profile for a more permanent setup
+export PATH=$PATH:~/bin
+
+# verify operation
+laconic-so version
+
+# if developing / exploring watchers, run this script too:
+# ./install-watcher-deps.sh

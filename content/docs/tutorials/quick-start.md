@@ -15,7 +15,7 @@ This tutorial will give you an overview of some key components of the Laconic St
 
 ## Install
 
-This tutorial assumes you are on a local machine. Trying it in the cloud will requires additional configurations (e.g., opening ports) not covered here.
+This tutorial assumes you are on a local machine (Mac or Linux). Trying it in the cloud requires additional configurations (e.g., opening ports) not covered here.
 
 ### Pre-requisites
 

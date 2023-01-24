@@ -11,6 +11,8 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 apt update -y && apt install yarn -y
 
+# for PhantomJS
+apt install bzip2
 
 ## setup postgres
 apt install postgresql postgresql-contrib -y

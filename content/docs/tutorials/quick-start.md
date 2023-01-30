@@ -5,13 +5,13 @@ draft: false
 weight: 1
 ---
 
-This tutorial will give you an overview of some key components of the Laconic Stack. You will accomplish the following:
+In [the last blog post](https://www.laconic.com/blog/intro-to-the-laconic-stack) we introduced all the main components of the Laconic Stack. The first point of entry for any developer wishing to use Laconic is [Stack Orchestrator](https://github.com/cerc-io/stack-orchestrator). It allows you to stand up a local fixturenet for testing purposes. Integrated directly into are several "stacks" which work out of the box. Today we'll be going over the ERC20 "stack" to provide an overview of some key components of the Laconic Stack. You will accomplish the following:
 
-- stand up the core stack
-- deploy an ERC20 watcher
+- stand up the core stack using Stack Orchestrator
 - deploy an ERC20 token
-- send tokens to and from your local account to another account on Metamask
-- use GraphQL to query the watcher for information about the token and accounts.
+- deploy an ERC20 watcher
+- send tokens to and from your local account to a new account on Metamask
+- use GraphQL to query the watcher for information about the token and accounts
 
 ## Install
 

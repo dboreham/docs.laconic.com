@@ -74,7 +74,7 @@ For a more permanent setup, move the binary to `~/bin` and add it your `PATH`.
 
 ## Stack Orchestrator
 
-The `laconic-so` CLI tool makes it easy to experiment with various components of the stack. It allows you to quickly and seamlessly experiment with watchers. Because it uses docker/docker-compose, several commands in this tutorial will leverage the ability to execute commands directely in the containers. This, for example, means that `yarn` doesn't need to be installed on your local machine.
+The `laconic-so` CLI tool makes it easy to experiment with various components of the stack. It allows you to quickly and seamlessly experiment with watchers. Because it uses docker/docker-compose, several commands in this tutorial will leverage the ability to execute commands directly in the containers. This, for example, means that `yarn` doesn't need to be installed on your local machine.
 
 ## Setup
 

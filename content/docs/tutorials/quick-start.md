@@ -113,7 +113,7 @@ Successfully tagged cerc/watcher-erc20:local
 Next, let's deploy this stack:
 
 ```
-./laconic-so --stack erc20deploy-system up
+./laconic-so --stack erc20 deploy-system up
 ```
 
 The output will looks like this (ignore the warnings):

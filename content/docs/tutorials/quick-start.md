@@ -503,7 +503,7 @@ Voila! You've successfully stood up the core Laconic stack, deployed an ERC20 to
 Tear down your docker containers with:
 
 ```
-./laconic-so deploy-system --stack erc20 down
+./laconic-so --stack erc20 deploy-system down
 ```
 
 ## Next steps
